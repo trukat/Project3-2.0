@@ -3,7 +3,18 @@ import React from "react";
 const Login = () => {
   return (
     <div>
-      <h1>Hello from Login</h1>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("hi");
+        }}
+      >
+        <label>Email</label>
+        <input type="text" name="email" />
+        <label>Password</label>
+        <input type="text" name="password" />
+        <input type="submit" />
+      </form>
     </div>
   );
 };
