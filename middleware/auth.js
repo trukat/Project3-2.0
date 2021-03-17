@@ -1,3 +1,4 @@
+// this allows authentication for users once they're logged in and also giving req.user the verified id
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
