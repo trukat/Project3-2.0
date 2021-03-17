@@ -10,9 +10,11 @@ module.exports = {
       });
 
       const savedPost = await newPost.save();
-      res.send(savedPost);
+      console.log("post:", savedPost);
+      res.json(savedPost);
     } catch (err) {
-      res.send("error saving: ", err);
+      console.log("hi", err);
+      res.status("error saving: ", err);
     }
   },
 };

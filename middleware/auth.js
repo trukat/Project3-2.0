@@ -18,7 +18,9 @@ const auth = async (req, res, next) => {
 
     req.user = verified.id;
     next();
-  } catch (err) {}
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
 };
 
 module.exports = auth;
