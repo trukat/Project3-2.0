@@ -3,8 +3,14 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import UserContext from "./context/userContext";
 
 function App() {
+  const [userData, setUserData] = useState({
+    user: undefined,
+    token: undefined,
+  });
+
   const checkLoggedIn = () => {
     let token = localStorage.getItem("auth-token");
     if (token === null) {

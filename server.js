@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // custom routes
-app.use("/users", require("./routes/userRoutes"));
+app.use("/user", require("./routes/userRoutes"));
 
 // otherwise this route is used
 app.get("*", (req, res) => {
