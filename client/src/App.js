@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import UserContext from "./context/userContext";
+import UserContext from "./context/UserContext";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -15,6 +15,7 @@ function App() {
     let token = localStorage.getItem("auth-token");
     if (token === null) {
       localStorage.setItem("auth-token", "");
+    } else {
     }
   };
 
@@ -25,11 +26,13 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/" component={Home} />
-        </Switch>
+        <UserContext.Provider value={{ userData, setUserData }}>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </UserContext.Provider>
       </Router>
     </div>
   );
