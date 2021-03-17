@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import UserContext from "./context/UserContext";
+import axios from "axios";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -11,12 +12,25 @@ function App() {
     token: undefined,
   });
 
-  const checkLoggedIn = () => {
+  const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token");
     if (token === null) {
       localStorage.setItem("auth-token", "");
     } else {
+      const userRes = await axios.get("/user", {
+        headers: { "x-auth-token": token },
+      });
+      console.log("user", userRes);
+      setUserData({
+        token,
+        user: userRes.data,
+      });
     }
+  };
+
+  const logOut = () => {
+    setUserData({ user: undefined, token: undefined });
+    localStorage.setItem("auth-token", "");
   };
 
   useEffect(() => {
@@ -30,7 +44,9 @@ function App() {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/" component={Home} />
+            <Route>
+              <Home logout={logOut} />
+            </Route>
           </Switch>
         </UserContext.Provider>
       </Router>
