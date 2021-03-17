@@ -7,14 +7,11 @@ const Home = (props) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!userData.user) {
-      history.push("/login");
-    }
+    if (!userData.user) history.push("/login");
   }, [userData.user, history]);
   return (
     <div>
       <h1>Hello from Home</h1>
-      <button onClick={props.logout}>logout</button>
     </div>
   );
 };

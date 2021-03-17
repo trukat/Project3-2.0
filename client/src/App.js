@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import UserContext from "./context/UserContext";
-import axios from "axios";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -17,14 +17,18 @@ function App() {
     if (token === null) {
       localStorage.setItem("auth-token", "");
     } else {
-      const userRes = await axios.get("/user", {
-        headers: { "x-auth-token": token },
-      });
-      console.log("user", userRes);
-      setUserData({
-        token,
-        user: userRes.data,
-      });
+      try {
+        const userRes = await axios.get("/user", {
+          headers: { "x-auth-token": token },
+        });
+        console.log("user", userRes);
+        setUserData({
+          token,
+          user: userRes.data,
+        });
+      } catch (err) {
+        console.log("User must Log in");
+      }
     }
   };
 
@@ -40,13 +44,21 @@ function App() {
   return (
     <div className="App">
       <Router>
+        {!userData.user ? (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        ) : (
+          <Link to="/" onClick={logOut}>
+            Log Out
+          </Link>
+        )}
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route>
-              <Home logout={logOut} />
-            </Route>
+            <Route path="/" component={Home} />
           </Switch>
         </UserContext.Provider>
       </Router>
