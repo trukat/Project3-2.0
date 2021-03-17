@@ -8,9 +8,14 @@ const Register = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    console.log("hi");
+    try {
+      const newUser = await axios.post("/users/register", form);
+      console.log(newUser);
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
   return (
@@ -25,7 +30,7 @@ const Register = () => {
         <label>Password</label>
         <input onChange={onChange} type="text" name="password" />
         <label>Password Check</label>
-        <input onChange={onChange} type="text" name="password" />
+        <input onChange={onChange} type="text" name="passwordCheck" />
         <input type="submit" />
       </form>
     </div>
