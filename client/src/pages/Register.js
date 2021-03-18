@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./register.css";
+import "./pages.css";
 import { useHistory } from "react-router-dom";
 
 const Register = () => {
@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const newUser = await axios.post("/user/register", form);
-      history.push("/login");
+      history.push("/confirm");
     } catch (err) {
       console.log(err.response);
     }

@@ -1,0 +1,89 @@
+/* Confirm page css */
+.confirmCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eceffc;
+}
+
+.confirmHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+/* Login page css */
+.loginBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eceffc;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+.loginHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Register Page css */
+.registerBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eceffc;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+.registerHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

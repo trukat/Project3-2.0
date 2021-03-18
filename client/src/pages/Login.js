@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../context/UserContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "./login.css";
+import "./pages.css";
 
 const Login = () => {
   const [form, setForm] = useState();
