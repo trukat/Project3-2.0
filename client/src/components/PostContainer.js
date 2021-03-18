@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const PostContainer = () => {
   const [form, setForm] = useState({ title: "", text: "" });
+
+  const [post, setPost] = useState([]);
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -10,16 +12,23 @@ const PostContainer = () => {
 
   const submitPost = async (e) => {
     e.preventDefault();
-
     try {
       const newPost = await axios.post("/post", form, {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
-      console.log(newPost);
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    (async () => {
+      const allPost = await axios.get("/post", {
+        headers: { "x-auth-token": localStorage.getItem("auth-token") },
+      });
+      setPost(allPost.data);
+    })();
+  }, []);
 
   return (
     <div>
@@ -31,6 +40,15 @@ const PostContainer = () => {
         <input onChange={onChange} type="text" name="text" />
         <button type="submit">Submit</button>
       </form>
+
+      <div className="allPost">
+        {post.map((post, index) => (
+          <div key={index}>
+            <h3>{post.title}</h3>
+            <p>{post.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
