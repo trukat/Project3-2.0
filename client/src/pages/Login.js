@@ -17,13 +17,18 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post("/user/login", form);
-      setUserData({
-        token: data.token,
-        user: data.user,
-      });
 
-      localStorage.setItem("auth-token", data.token);
-      history.push("/profile");
+      if (!data.user.confirmed) {
+        history.push("/confirm");
+      } else {
+        setUserData({
+          token: data.token,
+          user: data.user,
+        });
+
+        localStorage.setItem("auth-token", data.token);
+        history.push("/profile");
+      }
     } catch (err) {
       console.log(err.response);
     }

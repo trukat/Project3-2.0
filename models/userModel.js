@@ -23,10 +23,13 @@ const userSchema = new mongoose.Schema({
     required: true,
     minLength: 8,
   },
+  confirmed: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 userSchema.post("findOneAndDelete", async (user) => {
-  console.log(user, "hi");
   try {
     await Post.deleteMany({ authorId: user._id });
   } catch (err) {

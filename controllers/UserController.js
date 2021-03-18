@@ -74,6 +74,7 @@ module.exports = {
           id: user._id,
           firstName: user.firstName,
           lastName: user.lastName,
+          confirmed: user.confirmed,
         },
       });
     } catch (err) {

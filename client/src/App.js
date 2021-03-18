@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Confirm from "./pages/Confirm";
 import UserContext from "./context/UserContext";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
@@ -16,6 +17,7 @@ function App() {
 
   const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token");
+
     if (token === null) {
       localStorage.setItem("auth-token", "");
     } else {
@@ -52,6 +54,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />
+            <Route path="/confirm" component={Confirm} />
             <Route path="/" component={Home} />
           </Switch>
         </UserContext.Provider>
