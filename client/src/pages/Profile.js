@@ -3,7 +3,7 @@ import PostContainer from "../components/PostContainer";
 import UserContext from "../context/UserContext";
 import { useHistory } from "react-router-dom";
 
-const Profile = () => {
+const Profile = (props) => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
 
@@ -14,10 +14,9 @@ const Profile = () => {
 
   return (
     <div>
-      <h1>Hi from Profile</h1>
-      <h3>
+      <h1>
         Hello my name is {userData.user?.firstName} {userData.user?.lastName}
-      </h3>
+      </h1>
       <PostContainer />
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./register.css";
 
 const Register = () => {
   const [form, setForm] = useState();
@@ -19,18 +20,44 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={submit}>
-        <label>First Name</label>
-        <input onChange={onChange} type="text" name="firstName" />
-        <label>Last Name</label>
-        <input onChange={onChange} type="text" name="lastName" />
-        <label>Email</label>
-        <input onChange={onChange} type="text" name="email" />
-        <label>Password</label>
-        <input onChange={onChange} type="text" name="password" />
-        <label>Password Check</label>
-        <input onChange={onChange} type="text" name="passwordCheck" />
+    <div className="registerBody">
+      <form className="registerForm" onSubmit={submit}>
+        <h1 className="registerHeader">Register</h1>
+        <input
+          onChange={onChange}
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+        />
+        <br />
+        <input
+          onChange={onChange}
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+        />
+        <br />
+        <input
+          onChange={onChange}
+          type="text"
+          name="email"
+          placeholder="Email"
+        />
+        <br />
+        <input
+          onChange={onChange}
+          type="text"
+          name="password"
+          placeholder="password"
+        />
+        <br />
+        <input
+          onChange={onChange}
+          type="text"
+          name="passwordCheck"
+          placeholder="Re-enter password"
+        />
+        <br />
         <input type="submit" />
       </form>
     </div>

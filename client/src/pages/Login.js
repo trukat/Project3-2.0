@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../context/UserContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import "./login.css";
 
 const Login = () => {
   const [form, setForm] = useState();
@@ -23,7 +24,6 @@ const Login = () => {
       });
 
       localStorage.setItem("auth-token", data.token);
-      console.log("submitlogin");
       history.push("/profile");
     } catch (err) {
       console.log(err.response);
@@ -35,12 +35,25 @@ const Login = () => {
   }, [userData.user, history]);
 
   return (
-    <div>
-      <form onSubmit={submitLogInForm}>
-        <label>Email</label>
-        <input onChange={onChange} type="text" name="email" />
-        <label>Password</label>
-        <input onChange={onChange} type="text" name="password" />
+    <div className="loginBody">
+      <form className="loginForm" onSubmit={submitLogInForm}>
+        <h1 className="loginHeader">Login</h1>
+        <input
+          className="loginInput"
+          onChange={onChange}
+          type="text"
+          name="email"
+          placeholder="Email"
+        />
+        <br />
+        <input
+          className="loginInput"
+          onChange={onChange}
+          type="text"
+          name="password"
+          placeholder="Password"
+        />
+        <br />
         <input type="submit" />
       </form>
     </div>
