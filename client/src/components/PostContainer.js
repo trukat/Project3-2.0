@@ -16,18 +16,29 @@ const PostContainer = () => {
       const newPost = await axios.post("/post", form, {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
+
+      setPost([...post, newPost]);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
+    const cancelToken = axios.CancelToken;
+    const source = cancelToken.source();
+
     (async () => {
-      const allPost = await axios.get("/post", {
-        headers: { "x-auth-token": localStorage.getItem("auth-token") },
-      });
-      setPost(allPost.data);
+      try {
+        const allPost = await axios.get("/post", {
+          cancelToken: source.token,
+          headers: { "x-auth-token": localStorage.getItem("auth-token") },
+        });
+        setPost(allPost.data);
+      } catch (err) {
+        console.log(err, "hello");
+      }
     })();
+    return () => source.cancel();
   }, []);
 
   return (

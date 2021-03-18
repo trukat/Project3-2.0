@@ -9,7 +9,6 @@ const Profile = (props) => {
 
   useEffect(() => {
     if (!userData.user) history.push("/login");
-    console.log("from home", userData.user);
   }, [userData.user, history]);
 
   return (

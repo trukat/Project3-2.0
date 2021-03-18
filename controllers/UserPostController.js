@@ -12,7 +12,6 @@ module.exports = {
       const savedPost = await newPost.save();
       res.json(savedPost);
     } catch (err) {
-      console.log("hi", err);
       res.status("error saving: ", err);
     }
   },
@@ -23,7 +22,6 @@ module.exports = {
       console.log(allPosts);
       res.json(allPosts);
     } catch (err) {
-      console.log("hi", err);
       res.send("cannot get posts", err);
     }
   },
