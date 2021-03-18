@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import UserContext from "./context/UserContext";
 import Navbar from "./components/Navbar";
+import Profile from "./pages/Profile";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -51,6 +52,7 @@ function App() {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/profile" component={Profile} />
             <Route path="/" component={Home} />
           </Switch>
         </UserContext.Provider>

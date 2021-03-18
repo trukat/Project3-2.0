@@ -2,10 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
-  console.log(props);
   let links = (info) => {
-    console.log(info.props);
-
     if (info.props) {
       return (
         <>

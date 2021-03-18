@@ -23,14 +23,15 @@ const Login = () => {
       });
 
       localStorage.setItem("auth-token", data.token);
-      history.push("/");
+      console.log("submitlogin");
+      history.push("/profile");
     } catch (err) {
       console.log(err.response);
     }
   };
 
   useEffect(() => {
-    if (userData.user) history.push("/");
+    if (userData.user) history.push("/profile");
   }, [userData.user, history]);
 
   return (
