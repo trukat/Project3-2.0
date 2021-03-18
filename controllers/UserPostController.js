@@ -19,7 +19,6 @@ module.exports = {
   getUserPost: async (req, res) => {
     try {
       const allPosts = await Post.find({ authorId: req.user });
-      console.log(allPosts);
       res.json(allPosts);
     } catch (err) {
       res.send("cannot get posts", err);
