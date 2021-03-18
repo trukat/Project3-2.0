@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const PostContainer = () => {
   const [form, setForm] = useState({ title: "", text: "" });
 
   const [post, setPost] = useState([]);
+  const history = useHistory();
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,8 +18,8 @@ const PostContainer = () => {
       const newPost = await axios.post("/post", form, {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
-
       setPost([...post, newPost]);
+      history.push("/profile");
     } catch (error) {
       console.log(error);
     }

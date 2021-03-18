@@ -25,9 +25,10 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.pre("findOneAndDelete", async (user) => {
+userSchema.post("findOneAndDelete", async (user) => {
+  console.log(user, "hi");
   try {
-    await Post.deleteMany({ authorId: _id });
+    await Post.deleteMany({ authorId: user._id });
   } catch (err) {
     console.log(err);
   }

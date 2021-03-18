@@ -2,7 +2,6 @@ const Post = require("../models/userPostModel");
 
 module.exports = {
   newPost: async (req, res) => {
-    console.log("hi");
     try {
       const newPost = new Post({
         title: req.body.title,

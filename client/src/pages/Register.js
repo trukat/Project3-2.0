@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./register.css";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
   const [form, setForm] = useState();
+  const history = useHistory();
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -13,7 +15,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const newUser = await axios.post("/user/register", form);
-      console.log(newUser);
+      history.push("/login");
     } catch (err) {
       console.log(err.response);
     }
