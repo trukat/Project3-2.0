@@ -23,4 +23,13 @@ module.exports = {
       res.send("cannot get posts", err);
     }
   },
+
+  deleteUserPost: async (req, res) => {
+    try {
+      const deletePost = await Post.findOneAndDelete({ authorId: req.user });
+      res.json(deletePost);
+    } catch (err) {
+      res.send(err);
+    }
+  },
 };

@@ -1,4 +1,4 @@
-/* Confirm page css */
+/* Confirm and Confirmed account page css */
 .confirmCard {
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 40px;
+  padding: 30px 40px;
   color: white;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
@@ -41,7 +41,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 40px;
+  padding: 30px 40px;
   color: white;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
@@ -71,7 +71,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 40px;
+  padding: 30px 40px;
   color: white;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
@@ -86,4 +86,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Profile Page Css*/
+.profileHeader {
+  grid-area: header;
+}
+.aboutMe {
+  grid-area: menu;
+}
+.postContainer {
+  grid-area: main;
+}
+.allPost {
+  grid-area: right;
+}
+
+.grid-container {
+  color: white;
+  display: grid;
+  grid-template-areas:
+    "header header header header header header"
+    "menu main main main right right"
+    "menu main main main right right";
+  grid-gap: 10px;
+  background-color: #a4a7aa;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(70, 68, 68, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 1rem;
+  border: thick;
 }

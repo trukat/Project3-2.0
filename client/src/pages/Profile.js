@@ -3,6 +3,7 @@ import PostContainer from "../components/PostContainer";
 import UserContext from "../context/UserContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import "./pages.css";
 
 const Profile = (props) => {
   const { userData } = useContext(UserContext);
@@ -24,12 +25,21 @@ const Profile = (props) => {
   };
 
   return (
-    <div>
-      <h1>
-        Hello my name is {userData.user?.firstName} {userData.user?.lastName}
-      </h1>
-      <PostContainer />
-      <button onClick={deleteProfile}>Delete</button>
+    <div className="grid-container">
+      <div className="profileHeader">
+        <h1>
+          Hello my name is {userData.user?.firstName} {userData.user?.lastName}
+        </h1>
+      </div>
+      <div className="aboutMe">
+        <h2>AboutMe</h2>
+      </div>
+      <div className="postContainer">
+        <PostContainer />
+      </div>
+      <div className="allPost">
+        <button onClick={deleteProfile}>Delete</button>
+      </div>
     </div>
   );
 };

@@ -25,6 +25,17 @@ const PostContainer = () => {
     }
   };
 
+  const deletePost = async () => {
+    try {
+      await axios.delete("/post", {
+        headers: { "x-auth-token": localStorage.getItem("auth-token") },
+      });
+      console.log("hi");
+    } catch (err) {
+      console.log(err, "hi");
+    }
+  };
+
   useEffect(() => {
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
@@ -45,7 +56,6 @@ const PostContainer = () => {
 
   return (
     <div>
-      <h1>Hello from post container</h1>
       <form onSubmit={submitPost}>
         <label>Title:</label>
         <input onChange={onChange} type="text" name="title" />
@@ -59,6 +69,7 @@ const PostContainer = () => {
           <div key={index}>
             <h3>{post.title}</h3>
             <p>{post.text}</p>
+            <button onClick={deletePost}>Delete</button>
           </div>
         ))}
       </div>
