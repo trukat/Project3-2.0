@@ -8,6 +8,7 @@ import Confirm from "./pages/Confirm";
 import UserContext from "./context/UserContext";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
+import ConfirmedAccount from "./pages/ConfirmedAccount";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -55,6 +56,7 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />
             <Route path="/confirm" component={Confirm} />
+            <Route path="/confirm_token/:token" component={ConfirmedAccount} />
             <Route path="/" component={Home} />
           </Switch>
         </UserContext.Provider>
