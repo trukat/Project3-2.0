@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/user", require("./routes/userRoutes"));
 app.use("/post", require("./routes/userPostRoutes"));
 app.use("/profile", require("./routes/profileRoutes"));
+app.use("/confirmation", require("./routes/confirmationRoutes"));
 
 // otherwise this route is used
 app.get("*", (req, res) => {
