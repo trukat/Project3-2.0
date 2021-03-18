@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import UserContext from "./context/UserContext";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -44,16 +45,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {!userData.user ? (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-          </>
-        ) : (
-          <Link to="/" onClick={logOut}>
-            Log Out
-          </Link>
-        )}
+        <Navbar props={userData.user} logout={logOut} />
+
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
             <Route path="/login" component={Login} />
