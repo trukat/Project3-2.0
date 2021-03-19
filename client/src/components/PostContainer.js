@@ -30,7 +30,17 @@ const PostContainer = () => {
       await axios.delete("/post", {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
-      console.log("hi");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const updatePost = async () => {
+    try {
+      const updateUserPost = await axios.patch("/post/edit", form, {
+        headers: { "x-auth-token": localStorage.getItem("auth-token") },
+      });
+      console.log(updateUserPost.data);
     } catch (err) {
       console.log(err, "hi");
     }
@@ -48,7 +58,7 @@ const PostContainer = () => {
         });
         setPost(allPost.data);
       } catch (err) {
-        console.log(err, "hello");
+        console.log(err);
       }
     })();
     return () => source.cancel();
@@ -69,6 +79,7 @@ const PostContainer = () => {
           <div key={index}>
             <h3>{post.title}</h3>
             <p>{post.text}</p>
+            <button onClick={updatePost}>Update</button>
             <button onClick={deletePost}>Delete</button>
           </div>
         ))}

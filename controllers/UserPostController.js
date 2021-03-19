@@ -32,4 +32,17 @@ module.exports = {
       res.send(err);
     }
   },
+
+  updateUserPost: async (req, res) => {
+    try {
+      const updatePost = await Post.findByIdAndUpdate(req.body._id, {
+        text: req.body.text,
+      });
+      console.log(updatePost, "heelloo");
+      console.log(req.body._id);
+      res.json(updatePost);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
