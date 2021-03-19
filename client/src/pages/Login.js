@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import UserContext from "../context/UserContext";
+import UserContext from "../context/userContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./pages.css";

@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Confirm from "./pages/Confirm";
-import UserContext from "./context/UserContext";
+import UserContext from "./context/userContext";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import ConfirmedAccount from "./pages/ConfirmedAccount";
