@@ -35,11 +35,11 @@ module.exports = {
 
   updateUserPost: async (req, res) => {
     try {
-      const updatePost = await Post.findByIdAndUpdate(req.body._id, {
-        text: req.body.text,
-      });
+      const updatePost = await Post.find({ _id: "605406d2d4bd241ae03b9c32" });
+
       console.log(updatePost, "heelloo");
-      console.log(req.body._id);
+      console.log("req.body", req.body);
+      console.log("_id", updatePost);
       res.json(updatePost);
     } catch (err) {
       console.log(err);

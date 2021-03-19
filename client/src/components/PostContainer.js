@@ -35,7 +35,8 @@ const PostContainer = () => {
     }
   };
 
-  const updatePost = async () => {
+  const updatePost = async (e) => {
+    e.preventDefault();
     try {
       const updateUserPost = await axios.patch("/post/edit", form, {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
@@ -79,7 +80,14 @@ const PostContainer = () => {
           <div key={index}>
             <h3>{post.title}</h3>
             <p>{post.text}</p>
-            <button onClick={updatePost}>Update</button>
+            <form onClick={updatePost}>
+              <label>Title:</label>
+              <input onChange={onChange} type="text" name="title" />
+              <label>Text:</label>
+              <input onChange={onChange} type="text" name="text" />
+              <button type="submit">Submit</button>
+            </form>
+            {/* <button onClick={updatePost}>Update</button> */}
             <button onClick={deletePost}>Delete</button>
           </div>
         ))}
