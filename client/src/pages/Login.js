@@ -40,6 +40,7 @@ const Login = () => {
 
   return (
     <div className="loginBody">
+          <video src="/Video/Video-3.mp4" autoPlay loop muted />
       <form className="loginForm" onSubmit={submitLogInForm}>
         <h1 className="loginHeader">Login</h1>
         <input
