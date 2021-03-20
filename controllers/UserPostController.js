@@ -8,8 +8,9 @@ module.exports = {
         text: req.body.text,
         authorId: req.user,
       });
-      const savedPost = await newPost.save();
-      res.json(savedPost);
+      await newPost.save();
+      const findPost = await Post.find({});
+      res.json(findPost);
     } catch (err) {
       res.status("error saving: ", err);
     }
@@ -43,7 +44,7 @@ module.exports = {
       const findPost = await Post.find({ _id: req.body._id });
       console.log("findPost:", findPost);
       console.log("UpdatedPost:", updatePost);
-      res.json(updatePost);
+      res.json(findPost);
     } catch (err) {
       console.log(err);
     }

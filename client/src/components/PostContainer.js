@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const PostContainer = () => {
   const [form, setForm] = useState({ title: "", text: "" });
 
-  const [post, setPost] = useState([]);
+  let [post, setPost] = useState([]);
   const history = useHistory();
 
   const onChange = (e) => {
@@ -15,11 +15,11 @@ const PostContainer = () => {
   const submitPost = async (e) => {
     e.preventDefault();
     try {
-      const newPost = await axios.post("/post", form, {
+      let newPost = await axios.post("/post", form, {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
-      setPost([...post, newPost]);
-      history.push("/profile");
+      let post = newPost.data;
+      setPost([...post]);
     } catch (error) {
       console.log(error);
     }
@@ -45,8 +45,11 @@ const PostContainer = () => {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
       for (let i = 0; i < post.length; i++) {
-        if (updateUserPost.data[0]._id === post._id) {
-          console.log("hi");
+        if (updateUserPost.data[0]._id === post[i]._id) {
+          console.log(post[i]);
+          post[i] = updateUserPost.data[0];
+          console.log(post[i]);
+          setPost([...post]);
         }
       }
       console.log(updateUserPost.data);
