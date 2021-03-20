@@ -37,10 +37,18 @@ const PostContainer = () => {
 
   const updatePost = async (e) => {
     e.preventDefault();
+    if (post[e.target.value]) {
+      form["_id"] = post[e.target.value]._id;
+    }
     try {
       const updateUserPost = await axios.patch("/post/edit", form, {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
+      for (let i = 0; i < post.length; i++) {
+        if (updateUserPost.data[0]._id === post._id) {
+          console.log("hi");
+        }
+      }
       console.log(updateUserPost.data);
     } catch (err) {
       console.log(err, "hi");
@@ -80,12 +88,14 @@ const PostContainer = () => {
           <div key={index}>
             <h3>{post.title}</h3>
             <p>{post.text}</p>
-            <form onClick={updatePost}>
+            <form onClick={(e) => updatePost(e)}>
               <label>Title:</label>
               <input onChange={onChange} type="text" name="title" />
               <label>Text:</label>
               <input onChange={onChange} type="text" name="text" />
-              <button type="submit">Submit</button>
+              <button value={index} type="submit">
+                Submit
+              </button>
             </form>
             {/* <button onClick={updatePost}>Update</button> */}
             <button onClick={deletePost}>Delete</button>

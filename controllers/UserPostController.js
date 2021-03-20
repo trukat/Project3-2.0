@@ -34,12 +34,15 @@ module.exports = {
   },
 
   updateUserPost: async (req, res) => {
+    console.log("before:", req.body);
     try {
-      const updatePost = await Post.find({ _id: "605406d2d4bd241ae03b9c32" });
-
-      console.log(updatePost, "heelloo");
-      console.log("req.body", req.body);
-      console.log("_id", updatePost);
+      const updatePost = await Post.findByIdAndUpdate(
+        { _id: req.body._id },
+        req.body
+      );
+      const findPost = await Post.find({ _id: req.body._id });
+      console.log("findPost:", findPost);
+      console.log("UpdatedPost:", updatePost);
       res.json(updatePost);
     } catch (err) {
       console.log(err);
