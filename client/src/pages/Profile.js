@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import PostContainer from "../components/PostContainer";
 import UserContext from "../context/userContext";
+import moment from "moment";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./pages.css";
@@ -24,8 +25,8 @@ const Profile = (props) => {
         `https://api.seatgeek.com/2/events?taxonomies.name=concert&geoip=true&client_id=${clientId}&client_secret=${apiKey}`
       );
       const concert = response.data.events;
-      setEvents(concert);
-      console.log("response:", concert);
+        setEvents(concert);
+        console.log("response:", concert);
     } catch (error) {
       console.log(error);
     }
@@ -59,10 +60,14 @@ const Profile = (props) => {
         <h2>Upcoming Events Near You</h2>
         {events.map((item, index) => (
           <div key={index}>
-            <p> {item.title} 
+            <p> {item.title} </p>
+            <p>{item.datetime_tbd?"TBD":moment(item.datetime_local).format('MMMM Do YYYY')}</p>
             <img src={item.performers[0].image}></img>
-            <a href={item.url}>Tickets</a> {item.venue.name} {item.venue.address} {item.venue.display_location}
-            </p> 
+            <p></p>
+            <a href={item.url} target="_blank">Tickets</a> 
+            <p>{item.venue.name}</p> 
+            <p>{item.venue.address}</p> 
+            <p>{item.venue.display_location}</p>
             
           </div>
         ))}
