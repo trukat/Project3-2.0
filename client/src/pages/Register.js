@@ -49,14 +49,14 @@ const Register = () => {
         <br />
         <input
           onChange={onChange}
-          type="text"
+          type="password"
           name="password"
           placeholder="password"
         />
         <br />
         <input
           onChange={onChange}
-          type="text"
+          type="password"
           name="passwordCheck"
           placeholder="Re-enter password"
         />
