@@ -49,7 +49,7 @@ function Footer() {
           </div>
           <div className="footer-link-items">
             <h2>Social Media</h2>
-            <Link to="/">Youtube</Link>Name
+            <Link to="/">Youtube</Link>
             <Link to="/">Spotify</Link>
             <Link to="/">Itunes</Link>
           </div>
