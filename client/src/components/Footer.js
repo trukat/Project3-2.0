@@ -6,80 +6,106 @@ import { Button } from "./Button";
 function Footer() {
   return (
     <div className="footer-container">
-      <section className="footer-subscription">
-        <p className="footer-subscription-heading">
-          Join the newsletter to receive Updates
-        </p>
-        <p className="footer-subscription-text">You can subscribe here</p>
-        <div className="input-areas">
-          <form>
-            <input
-              className="footer-input"
-              name="email"
-              type="email"
-              placeholder="Your Email"
-            />
-            <Button buttonStyle="btn--outline">Subscribe</Button>
-          </form>
-        </div>
-      </section>
       <div className="footer-links">
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
             <h2>About Us</h2>
-            <Link to="/sign-up">How it works</Link>
-            <Link to="/">Project</Link>
-            <Link to="/">Persentation</Link>
-            <Link to="/">Tecnologies</Link>
+            <a
+              href="https://github.com/Frank-5850/Project3-2.0"
+              target="_blank"
+              rel="noreferrer"
+            >
+              How it works
+            </a>
           </div>
           <div className="footer-link-items">
             <h2>Team</h2>
-            <Link to="/">Sudan</Link>
-            <Link to="/">Jivaka</Link>
-            <Link to="/">Kathy</Link>
-            <Link to="/">Franco</Link>
-            <Link to="/">Lester</Link>
+            <a
+              href="https://github.com/Sudan20215"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Sudan
+            </a>
+            <a href="https://github.com/Nsilo" target="_blank" rel="noreferrer">
+              Jivaka
+            </a>
+            <a
+              href="https://github.com/trukat"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Kathy
+            </a>
+            <a
+              href="https://github.com/Frank-5850"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Franco
+            </a>
+            <a
+              href="https://github.com/lstvgore"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Lester
+            </a>
           </div>
         </div>
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
             <h2>UC Berkeley Extension</h2>
-            <Link to="/">info</Link>
-            <Link to="/">Bootcamp</Link>
+            <a
+              href="https://extension.berkeley.edu/publicViewHome.do?method=load&b_source=google&b_medium=cpc&b_campaign=7282495872&b_adgroup=80171951946&b_keyword=%2Bberkeley%20%2Bcontinuing%20%2Beducation&b_matchtype=b&b_gclid=Cj0KCQjwo-aCBhC-ARIsAAkNQisRDWPgg_KZPs1V_0Dl_SPpK7RROJCiYREkY49lR6jW88VVadH5qvIaArseEALw_wcB&b_device=c-&b_position=&b_adid=391646265564&b_placement=&b_random=307864989248245766&gclid=Cj0KCQjwo-aCBhC-ARIsAAkNQisRDWPgg_KZPs1V_0Dl_SPpK7RROJCiYREkY49lR6jW88VVadH5qvIaArseEALw_wcB"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Bootcamp
+            </a>
           </div>
           <div className="footer-link-items">
             <h2>Social Media</h2>
-            <Link to="/">Youtube</Link>Name
-            <Link to="/">Spotify</Link>
-            <Link to="/">Itunes</Link>
+            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
+              Youtube
+            </a>
+            <a
+              href="https://www.spotify.com/us/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Spotify
+            </a>
+            <a
+              href="https://www.apple.com/itunes/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Itunes
+            </a>
           </div>
         </div>
       </div>
       <section className="social-media">
         <div className="social-media-wrap">
           <div className="footer-logo">
-            <Link to="/" className="social-logo">
+            <Link to="/" className="navbar-logo">
               GroovIn
+              <i className="fas fa-record-vinyl" />
             </Link>
           </div>
           <small className="website-rights">Team Berlin © 2021</small>
           <div className="social-icons">
-            <Link
+            <a
               className="social-icon-link Github"
-              to="/"
+              href="https://github.com/Frank-5850/Project3-2.0"
               target="_blank"
               aria-label="GitHub"
+              rel="noreferrer"
+              rel="noreferrer"
             >
               <i className="fab fa-github" />
-            </Link>
-            <Link
-              className="social-icon-link instagram"
-              to="/"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <i className="fab fa-instagram" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
