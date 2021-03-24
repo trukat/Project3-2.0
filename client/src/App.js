@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import ConfirmedAccount from "./pages/ConfirmedAccount";
 import Footer from './components/Footer';
 
+
 function App() {
   const [userData, setUserData] = useState({
     user: undefined,
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <Router>
         <Navbar props={userData.user} logout={logOut} />
 
