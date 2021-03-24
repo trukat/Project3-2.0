@@ -17,16 +17,16 @@ const Profile = (props) => {
   }, [userData.user, history]);
 
   const getEvents = async () => {
-    const clientId=process.env.REACT_APP_CLIENTID;
-    const apiKey=process.env.REACT_APP_APIKEY;
+    const clientId = process.env.REACT_APP_CLIENTID;
+    const apiKey = process.env.REACT_APP_APIKEY;
 
     try {
       const response = await axios.get(
         `https://api.seatgeek.com/2/events?taxonomies.name=concert&geoip=true&client_id=${clientId}&client_secret=${apiKey}`
       );
       const concert = response.data.events;
-        setEvents(concert);
-        console.log("response:", concert);
+      setEvents(concert);
+      console.log("response:", concert);
     } catch (error) {
       console.log(error);
     }
@@ -61,14 +61,19 @@ const Profile = (props) => {
         {events.map((item, index) => (
           <div key={index}>
             <p> {item.title} </p>
-            <p>{item.datetime_tbd?"TBD":moment(item.datetime_local).format('MMMM Do YYYY')}</p>
+            <p>
+              {item.datetime_tbd
+                ? "TBD"
+                : moment(item.datetime_local).format("MMMM Do YYYY")}
+            </p>
             <img src={item.performers[0].image}></img>
             <p></p>
-            <a href={item.url} target="_blank">Tickets</a> 
-            <p>{item.venue.name}</p> 
-            <p>{item.venue.address}</p> 
+            <a href={item.url} target="_blank">
+              Tickets
+            </a>
+            <p>{item.venue.name}</p>
+            <p>{item.venue.address}</p>
             <p>{item.venue.display_location}</p>
-            
           </div>
         ))}
       </div>
