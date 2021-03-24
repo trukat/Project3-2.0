@@ -59,11 +59,3 @@ Suban Bhusal
 Jivaka Payne
 Franco Phan
 ```
-
-## Test
-
-To test application run the following command:
-
-```
-
-```
