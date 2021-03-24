@@ -1,5 +1,3 @@
-
-
 import React, { useState, useContext, useEffect } from "react";
 import PostContainer from "../components/PostContainer";
 import UserContext from "../context/userContext";
@@ -10,11 +8,7 @@ import "./pages.css";
 import Upload from "./Upload";
 // import Player from './components/Music/Player';
 
-
 const Profile = (props) => {
-
-
-
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const [events, setEvents] = useState([]);
@@ -40,8 +34,6 @@ const Profile = (props) => {
     }
   };
 
-
-
   // const deleteProfile = async () => {
   //   try {
   //     await axios.delete("/user", {
@@ -63,7 +55,7 @@ const Profile = (props) => {
       </div>
       <div className="aboutMe">
         <h2>AboutMe</h2>
-        {/* <Player /> */}
+        <Upload />
       </div>
       <div className="postContainer">
         <PostContainer />
@@ -78,9 +70,9 @@ const Profile = (props) => {
                 ? "TBD"
                 : moment(item.datetime_local).format("MMMM Do YYYY")}
             </p>
-            <img src={item.performers[0].image}></img>
+            <img src={item.performers[0].image} alt=""></img>
             <p></p>
-            <a href={item.url} target="_blank">
+            <a href={item.url} target="_blank" rel="noreferrer">
               Tickets
             </a>
             <p>{item.venue.name}</p>

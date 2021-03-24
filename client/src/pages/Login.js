@@ -54,7 +54,7 @@ const Login = () => {
         <input
           className="loginInput"
           onChange={onChange}
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
         />
