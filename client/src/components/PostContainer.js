@@ -35,6 +35,7 @@ const PostContainer = () => {
     }
   };
 
+  // pushes user input data into database
   const updatePost = async (e) => {
     e.preventDefault();
     if (post[e.target.value]) {
