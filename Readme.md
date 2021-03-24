@@ -22,8 +22,6 @@ Final Project for UC Berkeley Bootcamp. This is a Social Media App for the up an
 
 - [Tests](#tests)
 
-- [Questions](#questions)
-
 ---
 
 ## Installation
@@ -58,4 +56,12 @@ Kathy Trujillo
 Suban Bhusal
 Jivaka Payne
 Franco Phan
+```
+
+## Test
+
+To test application run the following command:
+
+```
+npm run dev
 ```
