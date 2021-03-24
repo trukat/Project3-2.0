@@ -30,6 +30,11 @@ const PostContainer = () => {
       await axios.delete("/post", {
         headers: { "x-auth-token": localStorage.getItem("auth-token") },
       });
+      let userPosts = await axios.get("/post", {
+        headers: { "x-auth-token": localStorage.getItem("auth-token") },
+      });
+      let post = userPosts.data;
+      setPost([...post]);
     } catch (err) {
       console.log(err);
     }
